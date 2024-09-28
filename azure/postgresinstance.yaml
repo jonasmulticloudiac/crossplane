@@ -1,0 +1,26 @@
+---
+apiVersion: database.azure.crossplane.io/v1beta1
+kind: PostgreSQLServer
+metadata:
+  name: rdx-psqldb
+  annotations:
+    argocd.argoproj.io/sync-wave: "4"
+spec:
+  forProvider:
+    administratorLogin: rootadmin
+    resourceGroupNameRef:
+      name: rg-crossplane
+    location: eastus2
+    sslEnforcement: Disabled
+    version: "11"
+    sku:
+      tier: GeneralPurpose
+      capacity: 2
+      family: Gen5
+    storageProfile:
+      storageMB: 40960
+  writeConnectionSecretToRef:
+    namespace: crossplane
+    name: rdx-psqldb
+  providerConfigRef:
+    name: default

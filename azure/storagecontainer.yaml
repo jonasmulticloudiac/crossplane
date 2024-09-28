@@ -1,0 +1,10 @@
+apiVersion: storage.azure.crossplane.io/v1alpha3
+kind: Container
+metadata:
+  name: rdx-container
+spec:
+  writeConnectionSecretToRef:
+    name: rdx-container
+    namespace: crossplane
+  providerConfigRef:
+    name: default

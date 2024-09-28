@@ -1,0 +1,17 @@
+apiVersion: database.azure.crossplane.io/v1alpha3
+kind: PostgreSQLServerFirewallRule
+metadata:
+  name: rdx-psql-fwrule
+  annotations:
+    argocd.argoproj.io/sync-wave: "5"
+spec:
+  providerConfigRef:
+    name: default
+  forProvider:
+    resourceGroupNameRef:
+      name: rg-crossplane
+    serverNameRef:
+      name: rdx-psqldb
+    properties:
+      startIpAddress: "0.0.0.0"
+      endIpAddress: "0.0.0.0"
