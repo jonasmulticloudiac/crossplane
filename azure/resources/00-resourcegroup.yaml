@@ -1,0 +1,11 @@
+apiVersion: azure.upbound.io/v1beta1
+kind: ResourceGroup
+metadata:
+ name: rg-crossplane
+ annotations:
+   argocd.argoproj.io/sync-wave: "1"
+spec:
+  forProvider:
+     location: eastus2
+  providerConfigRef: 
+     name: default
