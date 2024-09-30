@@ -5,6 +5,6 @@ metadata:
 spec:
   writeConnectionSecretToRef:
     name: rdx-container
-    namespace: crossplane
+    namespace: crossplane-system
   providerConfigRef:
     name: default

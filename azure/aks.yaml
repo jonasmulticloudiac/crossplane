@@ -19,5 +19,5 @@ spec:
   providerConfigRef:
     name: default
   writeConnectionSecretToRef:
-    namespace: crossplane
+    namespace: crossplane-system
     name: akscrossplane
